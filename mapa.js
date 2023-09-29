@@ -1,7 +1,44 @@
-var map = L.map(document.getElementById('mapDIV'), {
+/*var map = L.map(document.getElementById('mapDIV'), {
     center: [1.774187, -61.262458],
     zoom: 7
-    });
+    });*/
+
+if(window.screen.width > "500"){
+
+        var latit = 1.80054;
+        var long = -61.4714;
+        var zm = 7;
+var map = L.map(document.getElementById('mapDIV'), {
+          center: [latit, long],
+          zoom: zm,
+          //zoomControl: false,
+          //layers: [googleTerrain]
+        });
+      
+      
+      }else{
+      
+        var latit = -0.50;
+        var long = -61.4714;
+        var zm = 7;
+        var map = L.map(document.getElementById('mapDIV'), {
+          center: [latit, long],
+          zoom: zm,
+          //zoomControl: false,
+          //layers: [googleTerrain]
+        });
+
+
+      if (!L.Browser.touch) {
+        L.DomEvent
+        .disableClickPropagation(mapDIV)
+        .disableScrollPropagation(mapDIV);
+        } else {
+        L.DomEvent.disableClickPropagation(mapDIV);
+        }
+    }
+      
+    
 
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 20,

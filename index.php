@@ -111,7 +111,7 @@
     <script src="./GeoJson/pontes/codigos/pontes.js"></script>
     
     <script src="./mapa.js"></script>
-   <script src="./GeoJson/roraima/estadoRoraima.js"></script>
+    <script src="./GeoJson/roraima/estadoRoraima.js"></script>
 
     
  
