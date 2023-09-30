@@ -1,44 +1,7 @@
-/*var map = L.map(document.getElementById('mapDIV'), {
+var map = L.map(document.getElementById('mapDIV'), {
     center: [1.774187, -61.262458],
     zoom: 7
-    });*/
-
-if(window.screen.width > "500"){
-
-        var latit = 1.80054;
-        var long = -61.4714;
-        var zm = 7;
-var map = L.map(document.getElementById('mapDIV'), {
-          center: [latit, long],
-          zoom: zm,
-          //zoomControl: false,
-          //layers: [googleTerrain]
-        });
-      
-      
-      }else{
-      
-        var latit = -0.50;
-        var long = -61.4714;
-        var zm = 7;
-        var map = L.map(document.getElementById('mapDIV'), {
-          center: [latit, long],
-          zoom: zm,
-          //zoomControl: false,
-          //layers: [googleTerrain]
-        });
-
-
-      if (!L.Browser.touch) {
-        L.DomEvent
-        .disableClickPropagation(mapDIV)
-        .disableScrollPropagation(mapDIV);
-        } else {
-        L.DomEvent.disableClickPropagation(mapDIV);
-        }
-    }
-      
-    
+    });
 
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
@@ -53,6 +16,28 @@ var google = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 /*var leafletmap = L.map('map', { 
     renderer: L.svg()
   });*/
+
+
+//Draw Control
+
+var drawnFeatures = new L.FeatureGroup();
+    map.addLayer(drawnFeatures);
+
+var drawControl = new L.Control.Draw({
+    edit: {
+        featureGroup: drawnFeatures,
+        remove: false
+    }
+});
+    map.addControl(drawControl);
+
+
+
+map.on("draw:created", function(e){
+    var layer = e.layer;
+    drawnFeatures.addLayer(layer);
+});
+
 
 var mapas = {
     'OpenStreetMap': osm,
@@ -83,6 +68,8 @@ var pontes = {"Pontes":{
     'Pontes de Madeira': pontesMAD
     }  
 };
+
+
 
 L.control.groupedLayers(mapas, null).addTo(map);
 L.control.groupedLayers(null, municipios).addTo(map);

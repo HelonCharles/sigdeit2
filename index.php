@@ -12,6 +12,11 @@
     <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
 
+    <!--Leaflet Draw Plugin-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+
     <!--Geojson Estado de Roraima-->
     <script src="./GeoJson/roraima/estadoDeRoraima.geojson"></script>
 
@@ -111,7 +116,7 @@
     <script src="./GeoJson/pontes/codigos/pontes.js"></script>
     
     <script src="./mapa.js"></script>
-    <script src="./GeoJson/roraima/estadoRoraima.js"></script>
+   <script src="./GeoJson/roraima/estadoRoraima.js"></script>
 
     
  
